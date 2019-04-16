@@ -1,30 +1,14 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 
 from experiment_answers import Answers
 from data import Articles
+from forms import *
 
 app = Flask(__name__)
 
 Articles = Articles()
-
-
-class RegisterForm(Form):
-    name = StringField('Name', [validators.Length(min=1, max=50)])
-    username = StringField('Username', [validators.Length(min=4, max=25)])
-    email = StringField('Email', [validators.Length(min=6, max=50)])
-    password = PasswordField('Password', [
-        validators.DataRequired(),
-        validators.EqualTo('confirm', message='Passwords do not match')
-    ])
-    confirm = PasswordField('Confirm Password')
-
-
-class ChooseExperiment(Form):
-    choice = StringField('Choice', [validators.Length(min=1, max=5)])
-# class ExperimentFormA(Form):
 
 
 @app.route('/')
