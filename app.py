@@ -1,6 +1,4 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from flask_mysqldb import MySQL
-from passlib.hash import sha256_crypt
 
 from experiment_answers import Answers
 from data import Articles
@@ -46,13 +44,249 @@ def experiment():
 
 @app.route('/experiment_corpusA', methods=['GET', 'POST'])
 def experiment_corpusA():
-    form = ChooseExperiment(request.form)
+    form = ExperimentCorpusA(request.form)
+
+    if request.method == 'POST':
+        field_data = []
+
+        field_row1 = []
+        field_row1.append(form.field1_1.data)
+        field_row1.append(form.field1_2.data)
+        field_row1.append(form.field1_3.data)
+        field_row1.append(form.field1_4.data)
+        field_row1.append(form.field1_5.data)
+        field_row1.append(form.field1_6.data)
+        field_row1.append(form.field1_7.data)
+
+        field_row2 = []
+        field_row2.append(form.field2_1.data)
+        field_row2.append(form.field2_2.data)
+        field_row2.append(form.field2_3.data)
+        field_row2.append(form.field2_4.data)
+        field_row2.append(form.field2_5.data)
+        field_row2.append(form.field2_6.data)
+        field_row2.append(form.field2_7.data)
+
+        field_row3 = []
+        field_row3.append(form.field3_1.data)
+        field_row3.append(form.field3_2.data)
+        field_row3.append(form.field3_3.data)
+        field_row3.append(form.field3_4.data)
+        field_row3.append(form.field3_5.data)
+        field_row3.append(form.field3_6.data)
+        field_row3.append(form.field3_7.data)
+
+        field_row4 = []
+        field_row4.append(form.field4_1.data)
+        field_row4.append(form.field4_2.data)
+        field_row4.append(form.field4_3.data)
+        field_row4.append(form.field4_4.data)
+        field_row4.append(form.field4_5.data)
+        field_row4.append(form.field4_6.data)
+        field_row4.append(form.field4_7.data)
+
+        field_row5 = []
+        field_row5.append(form.field5_1.data)
+        field_row5.append(form.field5_2.data)
+        field_row5.append(form.field5_3.data)
+        field_row5.append(form.field5_4.data)
+        field_row5.append(form.field5_5.data)
+        field_row5.append(form.field5_6.data)
+        field_row5.append(form.field5_7.data)
+
+        field_row6 = []
+        field_row6.append(form.field6_1.data)
+        field_row6.append(form.field6_2.data)
+        field_row6.append(form.field6_3.data)
+        field_row6.append(form.field6_4.data)
+        field_row6.append(form.field6_5.data)
+        field_row6.append(form.field6_6.data)
+        field_row6.append(form.field6_7.data)
+
+        field_row7 = []
+        field_row7.append(form.field7_1.data)
+        field_row7.append(form.field7_2.data)
+        field_row7.append(form.field7_3.data)
+        field_row7.append(form.field7_4.data)
+        field_row7.append(form.field7_5.data)
+        field_row7.append(form.field7_6.data)
+        field_row7.append(form.field7_7.data)
+
+        field_data.append(field_row1)
+        field_data.append(field_row2)
+        field_data.append(field_row3)
+        field_data.append(field_row4)
+        field_data.append(field_row5)
+        field_data.append(field_row6)
+        field_data.append(field_row7)
+
+        print(field_data)
     return render_template('experiment_corpusA.html', form=form)
 
 
 @app.route('/experiment_corpusB', methods=['GET', 'POST'])
-def experiment_courpusB():
-    form = ChooseExperiment(request.form)
+def experiment_corpusB():
+    form = ExperimentCorpusB(request.form)
+
+    if request.method == 'POST':
+        field_data = []
+
+        field_row1 = []
+        field_row1.append(form.field1_1.data)
+        field_row1.append(form.field1_2.data)
+        field_row1.append(form.field1_3.data)
+        field_row1.append(form.field1_4.data)
+        field_row1.append(form.field1_5.data)
+        field_row1.append(form.field1_6.data)
+        field_row1.append(form.field1_7.data)
+        field_row1.append(form.field1_8.data)
+        field_row1.append(form.field1_9.data)
+        field_row1.append(form.field1_10.data)
+        field_row1.append(form.field1_11.data)
+
+        field_row2 = []
+        field_row2.append(form.field2_1.data)
+        field_row2.append(form.field2_2.data)
+        field_row2.append(form.field2_3.data)
+        field_row2.append(form.field2_4.data)
+        field_row2.append(form.field2_5.data)
+        field_row2.append(form.field2_6.data)
+        field_row2.append(form.field2_7.data)
+        field_row2.append(form.field2_8.data)
+        field_row2.append(form.field2_9.data)
+        field_row2.append(form.field2_10.data)
+        field_row2.append(form.field2_11.data)
+
+        field_row3 = []
+        field_row3.append(form.field3_1.data)
+        field_row3.append(form.field3_2.data)
+        field_row3.append(form.field3_3.data)
+        field_row3.append(form.field3_4.data)
+        field_row3.append(form.field3_5.data)
+        field_row3.append(form.field3_6.data)
+        field_row3.append(form.field3_7.data)
+        field_row3.append(form.field3_8.data)
+        field_row3.append(form.field3_9.data)
+        field_row3.append(form.field3_10.data)
+        field_row3.append(form.field3_11.data)
+
+        field_row4 = []
+        field_row4.append(form.field4_1.data)
+        field_row4.append(form.field4_2.data)
+        field_row4.append(form.field4_3.data)
+        field_row4.append(form.field4_4.data)
+        field_row4.append(form.field4_5.data)
+        field_row4.append(form.field4_6.data)
+        field_row4.append(form.field4_7.data)
+        field_row4.append(form.field4_8.data)
+        field_row4.append(form.field4_9.data)
+        field_row4.append(form.field4_10.data)
+        field_row4.append(form.field4_11.data)
+
+        field_row5 = []
+        field_row5.append(form.field5_1.data)
+        field_row5.append(form.field5_2.data)
+        field_row5.append(form.field5_3.data)
+        field_row5.append(form.field5_4.data)
+        field_row5.append(form.field5_5.data)
+        field_row5.append(form.field5_6.data)
+        field_row5.append(form.field5_7.data)
+        field_row5.append(form.field5_8.data)
+        field_row5.append(form.field5_9.data)
+        field_row5.append(form.field5_10.data)
+        field_row5.append(form.field5_11.data)
+
+        field_row6 = []
+        field_row6.append(form.field6_1.data)
+        field_row6.append(form.field6_2.data)
+        field_row6.append(form.field6_3.data)
+        field_row6.append(form.field6_4.data)
+        field_row6.append(form.field6_5.data)
+        field_row6.append(form.field6_6.data)
+        field_row6.append(form.field6_7.data)
+        field_row6.append(form.field6_8.data)
+        field_row6.append(form.field6_9.data)
+        field_row6.append(form.field6_10.data)
+        field_row6.append(form.field6_11.data)
+
+        field_row7 = []
+        field_row7.append(form.field7_1.data)
+        field_row7.append(form.field7_2.data)
+        field_row7.append(form.field7_3.data)
+        field_row7.append(form.field7_4.data)
+        field_row7.append(form.field7_5.data)
+        field_row7.append(form.field7_6.data)
+        field_row7.append(form.field7_7.data)
+        field_row7.append(form.field7_8.data)
+        field_row7.append(form.field7_9.data)
+        field_row7.append(form.field7_10.data)
+        field_row7.append(form.field7_11.data)
+
+        field_row8 = []
+        field_row8.append(form.field8_1.data)
+        field_row8.append(form.field8_2.data)
+        field_row8.append(form.field8_3.data)
+        field_row8.append(form.field8_4.data)
+        field_row8.append(form.field8_5.data)
+        field_row8.append(form.field8_6.data)
+        field_row8.append(form.field8_7.data)
+        field_row8.append(form.field8_8.data)
+        field_row8.append(form.field8_9.data)
+        field_row8.append(form.field8_10.data)
+        field_row8.append(form.field8_11.data)
+
+        field_row9 = []
+        field_row9.append(form.field9_1.data)
+        field_row9.append(form.field9_2.data)
+        field_row9.append(form.field9_3.data)
+        field_row9.append(form.field9_4.data)
+        field_row9.append(form.field9_5.data)
+        field_row9.append(form.field9_6.data)
+        field_row9.append(form.field9_7.data)
+        field_row9.append(form.field9_8.data)
+        field_row9.append(form.field9_9.data)
+        field_row9.append(form.field9_10.data)
+        field_row9.append(form.field9_11.data)
+
+        field_row10 = []
+        field_row10.append(form.field10_1.data)
+        field_row10.append(form.field10_2.data)
+        field_row10.append(form.field10_3.data)
+        field_row10.append(form.field10_4.data)
+        field_row10.append(form.field10_5.data)
+        field_row10.append(form.field10_6.data)
+        field_row10.append(form.field10_7.data)
+        field_row10.append(form.field10_8.data)
+        field_row10.append(form.field10_9.data)
+        field_row10.append(form.field10_10.data)
+        field_row10.append(form.field10_11.data)
+
+        field_row11 = []
+        field_row11.append(form.field11_1.data)
+        field_row11.append(form.field11_2.data)
+        field_row11.append(form.field11_3.data)
+        field_row11.append(form.field11_4.data)
+        field_row11.append(form.field11_5.data)
+        field_row11.append(form.field11_6.data)
+        field_row11.append(form.field11_7.data)
+        field_row11.append(form.field11_8.data)
+        field_row11.append(form.field11_9.data)
+        field_row11.append(form.field11_10.data)
+        field_row11.append(form.field11_11.data)
+
+        field_data.append(field_row1)
+        field_data.append(field_row2)
+        field_data.append(field_row3)
+        field_data.append(field_row4)
+        field_data.append(field_row5)
+        field_data.append(field_row6)
+        field_data.append(field_row7)
+        field_data.append(field_row8)
+        field_data.append(field_row9)
+        field_data.append(field_row10)
+        field_data.append(field_row11)
+
+        print(field_data)
     return render_template('experiment_corpusB.html', form=form)
 
 

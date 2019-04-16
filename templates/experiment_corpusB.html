@@ -1,13 +1,181 @@
 {% extends 'layout.html' %} {% block body %} {% from
-"includes/_formhelpers.html" import render_field %}
-<h1 class="text-h2-lightblue">Experiment</h1>
-<div class="content" id="experiment-article-section-1-content"></div>
-<form class="centred" method="POST">
-  <div class="form-group">
-    {{render_field(form.choice, class_="form-control")}}
-  </div>
-  <hr />
-  <br />
-  <button type="submit" class="btn btn-success submit">Submit</button>
-</form>
-{% endblock %}
+  "includes/_formhelpers.html" import render_field %}
+  <h1 class="text-h2-lightblue">Experiment</h1>
+  <div class="content" id="experiment-article-section-1-content"></div>
+  <form class="centred" method="POST">
+    <center><p>(eos) You book a car (eos) I can read a book in the park (eos) Park the car (eos) Can you read the book (eos)</p></center>
+    <br>
+    <br>
+    <center><table style="width:60%" border="2">
+      <tr>
+        <th>&nbsp</th>
+        <th><p>(eos)</p></th>
+        <th><p>you</p></th>
+        <th><p>book</p></th>
+        <th><p>a</p></th>
+        <th><p>car</p></th>
+        <th><p>I</p></th>
+        <th><p>can</p></th>
+        <th><p>read</p></th>
+        <th><p>in</p></th>
+        <th><p>the</p></th>
+        <th><p>park</p></th>
+      </tr>
+      <tr>
+        <td><p>(eos)</p></td>
+        <td>{{render_field(form.field1_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field1_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>you</p></td>
+        <td>{{render_field(form.field2_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field2_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>book</p></td>
+        <td>{{render_field(form.field3_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field3_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>a</p></td>
+        <td>{{render_field(form.field4_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field4_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>car</p></td>
+        <td>{{render_field(form.field5_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field5_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>I</p></td>
+        <td>{{render_field(form.field6_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field6_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>can</p></td>
+        <td>{{render_field(form.field7_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field7_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>read</p></td>
+        <td>{{render_field(form.field8_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field8_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>in</p></td>
+        <td>{{render_field(form.field9_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field9_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>can</p></td>
+        <td>{{render_field(form.field10_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field10_11, class_="form-control")}}</td>
+      </tr>
+      <tr>
+        <td><p>can</p></td>
+        <td>{{render_field(form.field11_1, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_2, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_3, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_4, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_5, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_6, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_7, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_8, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_9, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_10, class_="form-control")}}</td>
+        <td>{{render_field(form.field11_11, class_="form-control")}}</td>
+      </tr>
+    </table></center>
+    <button type="submit" class="btn btn-success submit">Submit</button>
+  </form>
+  {% endblock %}
