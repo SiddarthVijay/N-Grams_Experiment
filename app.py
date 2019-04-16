@@ -19,6 +19,7 @@ class RegisterForm(Form):
     ])
     confirm = PasswordField('Confirm Password')
 
+
 @app.route('/')
 def introduction():
     return render_template('introduction.html')
@@ -68,7 +69,7 @@ def article(id):
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
-        return render_template('register.html', form=form) 
+        return render_template('register.html', form=form)
     return render_template('register.html', form=form)
 
 
