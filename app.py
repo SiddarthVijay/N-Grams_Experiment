@@ -1,12 +1,10 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import Flask, render_template, flash, redirect, url_for, request, logging
 
-from experiment_answers import Answers
-from data import Articles
+from experiment_answers import corpusA, corpusB
 from forms import *
+from result_checker import resultCheck
 
 app = Flask(__name__)
-
-Articles = Articles()
 
 
 @app.route('/')
@@ -46,7 +44,7 @@ def experiment():
 def experiment_corpusA():
     form = ExperimentCorpusA(request.form)
 
-    if request.method == 'POST':
+    if request.method == 'POST' and form.validate():
         field_data = []
 
         field_row1 = []
@@ -120,7 +118,8 @@ def experiment_corpusA():
         field_data.append(field_row6)
         field_data.append(field_row7)
 
-        print(field_data)
+        correct_result, wrong_result = resultCheck(field_data, corpusA)
+        return render_template('results.html', correct=correct_result, wrong=wrong_result)
     return render_template('experiment_corpusA.html', form=form)
 
 
@@ -128,7 +127,7 @@ def experiment_corpusA():
 def experiment_corpusB():
     form = ExperimentCorpusB(request.form)
 
-    if request.method == 'POST':
+    if request.method == 'POST' and form.validate():
         field_data = []
 
         field_row1 = []
@@ -286,7 +285,9 @@ def experiment_corpusB():
         field_data.append(field_row10)
         field_data.append(field_row11)
 
-        print(field_data)
+        correct_result, wrong_result = resultCheck(field_data, corpusB)
+
+        return render_template('results.html', correct=correct_result, wrong=wrong_result)
     return render_template('experiment_corpusB.html', form=form)
 
 
@@ -303,24 +304,6 @@ def procedure():
 @app.route('/further_reading')
 def further_reading():
     return render_template('further_reading.html')
-
-
-@app.route('/articles')
-def articles():
-    return render_template('articles.html', articles=Articles)
-
-
-@app.route('/article/<string:id>/')
-def article(id):
-    return render_template('article.html', id=id)
-
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegisterForm(request.form)
-    if request.method == 'POST' and form.validate():
-        return render_template('register.html', form=form)
-    return render_template('register.html', form=form)
 
 
 if __name__ == '__main__':

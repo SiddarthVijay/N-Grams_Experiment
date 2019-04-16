@@ -1,0 +1,7 @@
+{% extends 'layout.html' %} {% block body %} {% from
+    "includes/_formhelpers.html" import render_field %}
+    <h1 class="text-h2-lightblue">Experiment Results</h1>
+    <div class="content" id="experiment-article-section-1-content"></div>
+    <p>Number of correct answers: {{correct}}</p>
+    <p>Number of wrong answers: {{wrong}}</p>
+    {% endblock %}
