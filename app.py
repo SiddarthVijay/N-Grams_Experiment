@@ -1,10 +1,22 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, logging
+from flask_mysqldb import MySQL
 
 from experiment_answers import corpusA, corpusB
 from forms import *
 from result_checker import resultCheck
 
 app = Flask(__name__)
+
+# Config MySQL
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'dbpass123'
+app.config['MYSQL_DB'] = 'ngrams'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+# Inititialize MySQL
+mysql = MySQL(app)
 
 
 @app.route('/')
@@ -301,7 +313,56 @@ def take_quiz():
     form = TakeQuiz(request.form)
 
     if request.method == 'POST' and form.validate():
-        field_row1.append(form.field1_1.data)
+        correct = 0
+
+        answer_data = []
+        answer_data.append(form.question1.data)
+        answer_data.append(form.question2.data)
+        answer_data.append(form.question3.data)
+        answer_data.append(form.question4.data)
+
+        # Adding the user answers to the DB
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO user_answers(q1, q2, q3, q4) VALUES(%s, %s, %s, %s)",
+                    (answer_data[0], answer_data[1], answer_data[2], answer_data[3]))
+        mysql.connection.commit()
+        cur.close()
+
+        # Get all questions from the database
+        cur = mysql.connection.cursor()
+        no_questions = cur.execute("SELECT question FROM qanda")
+        if no_questions > 0:
+            questions_data = cur.fetchall()
+            questions_data_clean = []
+            for qu in questions_data:
+                questions_data_clean.append(qu['question'])
+            print(questions_data_clean)
+
+        mysql.connection.commit()
+        cur.close()
+        # Checking if the answers are right from the DB
+        i = 0
+        for ques in questions_data_clean:
+            cur = mysql.connection.cursor()
+            result = cur.execute("SELECT * FROM qanda where question = %s", [ques])
+            print("This is the result")
+            print(result)
+
+            if result > 0:
+                data = cur.fetchone()
+                answer = data['answer']
+                print("The answer is: ")
+                print(answer)
+                print("The user answer is: ")
+                print(answer_data[i])
+                if answer == answer_data[i]:
+                    correct += 1
+                i += 1
+        mysql.connection.commit()
+        cur.close()
+
+        wrong = 4 - correct
+        return render_template('quiz_results.html', correct=correct, wrong=wrong)
     return render_template('take_quiz.html', form=form)
 
 
