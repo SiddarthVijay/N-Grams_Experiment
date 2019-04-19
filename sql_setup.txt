@@ -1,8 +1,0 @@
-CREATE DATABASE ngrams;
-USE ngrams;
-CREATE TABLE qanda(id INT(11) AUTO_INCREMENT PRIMARY KEY, question VARCHAR(100), answer VARCHAR(30));
-INSERT INTO qanda(question, answer) VALUES("What's the answer?", "answer");
-INSERT INTO qanda(question, answer) VALUES("What's the solution?", "solution");
-INSERT INTO qanda(question, answer) VALUES("What's the result?", "result");
-INSERT INTO qanda(question, answer) VALUES("What's the conclusion?", "conclusion");
-CREATE TABLE user_answers(id INT(11) AUTO_INCREMENT PRIMARY KEY, q1 varchar(100), q2 VARCHAR(100), q3 VARCHAR(100), q4 VARCHAR(100));
