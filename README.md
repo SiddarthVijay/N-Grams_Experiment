@@ -51,3 +51,10 @@ INSERT INTO qanda(question, answer) VALUES("What's the result?", "result");
 INSERT INTO qanda(question, answer) VALUES("What's the conclusion?", "conclusion");
 CREATE TABLE user_answers(id INT(11) AUTO_INCREMENT PRIMARY KEY, q1 varchar(100), q2 VARCHAR(100), q3 VARCHAR(100), q4 VARCHAR(100));
 ```
+
+### How To Run The App
+'''
+git clone https://github.com/SiddarthVijay/N-Grams_Experiment.git
+cd N-Grams_Experiment
+python3 app.py
+'''
