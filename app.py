@@ -8,7 +8,6 @@ from result_checker import resultCheck
 app = Flask(__name__)
 
 # Config MySQL
-
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'dbpass123'
@@ -19,23 +18,30 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(app)
 
 
+# Root page
 @app.route('/')
 def introduction():
     return render_template('introduction.html')
 
 
+# Theory page
 @app.route('/theory')
 def theory():
     return render_template('theory.html')
 
 
+# Objective page
 @app.route('/objective')
 def objective():
     return render_template('objective.html')
 
 
+# Experiment page
 @app.route('/experiment', methods=['GET', 'POST'])
 def experiment():
+    '''
+    This function redirects and controls the experiment landing page, where you can choose the Corpus you require
+    '''
     form = ChooseExperiment(request.form)
     if request.method == 'POST' and form.validate():
         choice = form.choice.data
@@ -52,13 +58,18 @@ def experiment():
     return render_template('experiment.html', form=form)
 
 
+# Experiment page for Corpus A
 @app.route('/experiment_corpusA', methods=['GET', 'POST'])
 def experiment_corpusA():
+    '''
+    This function redirects and controls the experiment page for Corpus A
+    '''
     form = ExperimentCorpusA(request.form)
 
     if request.method == 'POST' and form.validate():
         field_data = []
 
+        # Storing form data into variables to run computations on them
         field_row1 = []
         field_row1.append(form.field1_1.data)
         field_row1.append(form.field1_2.data)
@@ -135,11 +146,16 @@ def experiment_corpusA():
     return render_template('experiment_corpusA.html', form=form)
 
 
+# Experiment page for Corpus B
 @app.route('/experiment_corpusB', methods=['GET', 'POST'])
 def experiment_corpusB():
+    '''
+    This function redirects and controls the experiment page for Corpus A
+    '''
     form = ExperimentCorpusB(request.form)
 
     if request.method == 'POST' and form.validate():
+        # Storing form data into variables to run computations on them
         field_data = []
 
         field_row1 = []
@@ -303,13 +319,18 @@ def experiment_corpusB():
     return render_template('experiment_corpusB.html', form=form)
 
 
+# Quiz page
 @app.route('/quiz')
 def quiz():
     return render_template('quiz.html')
 
 
+# Interactive Quiz page
 @app.route('/take_quiz', methods=['GET', 'POST'])
 def take_quiz():
+    '''
+    This function redirects to and controls the interactive quiz page
+    '''
     form = TakeQuiz(request.form)
 
     if request.method == 'POST' and form.validate():
@@ -344,7 +365,8 @@ def take_quiz():
         i = 0
         for ques in questions_data_clean:
             cur = mysql.connection.cursor()
-            result = cur.execute("SELECT * FROM qanda where question = %s", [ques])
+            result = cur.execute(
+                "SELECT * FROM qanda where question = %s", [ques])
             print("This is the result")
             print(result)
 
@@ -366,11 +388,13 @@ def take_quiz():
     return render_template('take_quiz.html', form=form)
 
 
+# Procedure page
 @app.route('/procedure')
 def procedure():
     return render_template('procedure.html')
 
 
+# Further reading page
 @app.route('/further_reading')
 def further_reading():
     return render_template('further_reading.html')

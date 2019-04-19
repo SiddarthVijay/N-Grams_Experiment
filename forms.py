@@ -1,3 +1,5 @@
+# This file sets up the forms
+
 from wtforms import Form, StringField, validators
 
 
