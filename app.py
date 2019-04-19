@@ -296,6 +296,15 @@ def quiz():
     return render_template('quiz.html')
 
 
+@app.route('/take_quiz', methods=['GET', 'POST'])
+def take_quiz():
+    form = TakeQuiz(request.form)
+
+    if request.method == 'POST' and form.validate():
+        field_row1.append(form.field1_1.data)
+    return render_template('take_quiz.html', form=form)
+
+
 @app.route('/procedure')
 def procedure():
     return render_template('procedure.html')

@@ -6,6 +6,13 @@ class ChooseExperiment(Form):
                          validators.Length(min=1, max=1)])
 
 
+class TakeQuiz(Form):
+    question1 = StringField('', [validators.Length(min=1)])
+    question2 = StringField('', [validators.Length(min=1)])
+    question3 = StringField('', [validators.Length(min=1)])
+    question4 = StringField('', [validators.Length(min=1)])
+
+
 class ExperimentCorpusA(Form):
     field1_1 = StringField('', [validators.Length(min=1)])
     field1_2 = StringField('', [validators.Length(min=1)])

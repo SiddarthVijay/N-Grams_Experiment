@@ -1,0 +1,20 @@
+{% extends 'layout.html' %} {% block body %} {% from
+"includes/_formhelpers.html" import render_field %}
+<h1>Answer the questions below</h1>
+<h3><i>The answers to these questions are just the last word of the questions themselves</i></h3>
+<p>Question 1:</p>
+<p>What's the answer?</p>
+<p>{{render_field(form.question1, class_="form-control")}}</p>
+<hr />
+<p>Question 2:</p>
+<p>What's the solution?</p>
+<p>{{render_field(form.question2, class_="form-control")}}</p>
+<hr>
+<p>Question 3:</p>
+<p>What's the result?</p>
+<p>{{render_field(form.question3, class_="form-control")}}</p>
+<hr>
+<p>Question 4:</p>
+<p>What's the conclusion?</p>
+<p>{{render_field(form.question4, class_="form-control")}}</p>
+{% endblock %}
